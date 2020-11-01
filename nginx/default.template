@@ -1,6 +1,6 @@
 server {
-    listen ${DOCTOBER_CMS_NGINX_PORT};
-    server_name ${DOCTOBER_CMS_NGINX_HOST};
+    listen ${NGINX_PORT};
+    server_name ${NGINX_HOST};
     server_name MS-BASE-nginx;
 
     index index.php index.html;
@@ -29,7 +29,7 @@ server {
         fastcgi_intercept_errors on;
         try_files $uri /index.php =404;
         include         fastcgi_params;
-        fastcgi_pass ${DOCTOBER_CMS_PHP_FPM_HOST}:${DOCTOBER_CMS_PHP_FPM_PORT};
+        fastcgi_pass ${PHP_FPM_HOST}:${PHP_FPM_PORT};
         fastcgi_index   index.php;
         fastcgi_param   SCRIPT_FILENAME $document_root$fastcgi_script_name;
         fastcgi_param  REQUEST_URI        $request_uri;
